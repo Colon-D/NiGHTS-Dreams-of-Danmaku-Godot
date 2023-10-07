@@ -1,0 +1,30 @@
+[gd_scene load_steps=6 format=3 uid="uid://c0l7i62mk2h2a"]
+
+[ext_resource type="Script" path="res://projectile_movement.gd" id="1_08rgv"]
+[ext_resource type="Script" path="res://addons/smoothing/smoothing_2d.gd" id="1_rimdb"]
+[ext_resource type="Texture2D" uid="uid://cjibahpjlmr2f" path="res://sprites/danmaku.png" id="2_35juf"]
+[ext_resource type="Material" uid="uid://crrtvghpcjtu8" path="res://shaders/danmaku_mat.tres" id="3_3hb42"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_r54ex"]
+radius = 4.5
+
+[node name="Danmaku" type="Node2D"]
+
+[node name="Smoothing2D" type="Node2D" parent="."]
+script = ExtResource("1_rimdb")
+
+[node name="Sprite2D" type="Sprite2D" parent="Smoothing2D"]
+material = ExtResource("3_3hb42")
+texture = ExtResource("2_35juf")
+offset = Vector2(-4, 0.5)
+
+[node name="Area2D" type="Area2D" parent="."]
+collision_layer = 2
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+shape = SubResource("CircleShape2D_r54ex")
+
+[node name="ProjectileMovement" type="Node" parent="."]
+script = ExtResource("1_08rgv")
+
+[connection signal="area_entered" from="Area2D" to="." method="queue_free" unbinds=1]

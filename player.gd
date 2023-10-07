@@ -8,25 +8,23 @@ enum State {
 var state := State.IDLE
 var vel := Vector2.ZERO
 
-@export var idle_rot_vel := 90
-@export var idle_accel := 350
-@export var idle_grav := 12
-@export var moving_rot_vel := 400
-@export var moving_spd := 350
-@export var moving_accel := 350
-@export var drill_dash_rot_vel := 100
-@export var drill_dash_spd := 700
-@export var drill_dash_accel := 700
-
 @export var drill_dash_animation_player: AnimationPlayer
 
-func _ready():
-	pass
+@export var idle_rot_vel := 90.0
+@export var idle_accel := 350.0
+@export var idle_grav := 12.0
+@export var moving_rot_vel := 400.0
+@export var moving_spd := 350.0
+@export var moving_accel := 350.0
+@export var drill_dash_rot_vel := 100.0
+@export var drill_dash_spd := 700.0
+@export var drill_dash_accel := 700.0
 
-func _process(_delta: float):
-	pass
+func _ready() -> void:
+	# assert there is only one player
+	assert(get_tree().get_nodes_in_group("player").size() == 1, "There can only be one player or Ideya UI will break! TODO: Fix")
 
-func _physics_process(delta: float):
+func _physics_process(delta: float) -> void:
 	# get state depending on input
 	var input := Input.get_vector(
 		"move_left", "move_right", "move_up", "move_down"

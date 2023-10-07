@@ -1,0 +1,6 @@
+[gd_resource type="ShaderMaterial" load_steps=2 format=3 uid="uid://dodkx80jaqxlp"]
+
+[ext_resource type="Shader" path="res://shaders/ideya_shader.gdshader" id="1_bvnou"]
+
+[resource]
+shader = ExtResource("1_bvnou")

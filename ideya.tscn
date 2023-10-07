@@ -1,0 +1,28 @@
+[gd_scene load_steps=7 format=3 uid="uid://tvmb24iknx7i"]
+
+[ext_resource type="Script" path="res://addons/smoothing/smoothing_2d.gd" id="1_1eu3d"]
+[ext_resource type="Script" path="res://ideya.gd" id="1_1ju2y"]
+[ext_resource type="Script" path="res://projectile_movement.gd" id="2_ddwur"]
+[ext_resource type="Material" uid="uid://dodkx80jaqxlp" path="res://shaders/ideya_mat.tres" id="2_hjxcv"]
+[ext_resource type="Texture2D" uid="uid://cdq5jeao0gyq5" path="res://sprites/ideya.png" id="2_s3tbr"]
+[ext_resource type="Script" path="res://lerp_towards.gd" id="4_egbyx"]
+
+[node name="Ideya" type="Node2D" node_paths=PackedStringArray("lerp_towards", "projectile_movement")]
+script = ExtResource("1_1ju2y")
+lerp_towards = NodePath("LerpTowards")
+projectile_movement = NodePath("ProjectileMovement")
+
+[node name="Smoothing2D" type="Node2D" parent="."]
+script = ExtResource("1_1eu3d")
+
+[node name="Sprite2D" type="Sprite2D" parent="Smoothing2D"]
+material = ExtResource("2_hjxcv")
+texture = ExtResource("2_s3tbr")
+
+[node name="LerpTowards" type="Node" parent="."]
+script = ExtResource("4_egbyx")
+
+[node name="ProjectileMovement" type="Node" parent="."]
+process_mode = 4
+script = ExtResource("2_ddwur")
+gravity = 512.0

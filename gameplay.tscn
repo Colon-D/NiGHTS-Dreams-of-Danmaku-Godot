@@ -1,0 +1,97 @@
+[gd_scene load_steps=7 format=3 uid="uid://bmp2p5lu6jvrv"]
+
+[ext_resource type="Script" path="res://gameplay.gd" id="1_dil6c"]
+[ext_resource type="PackedScene" uid="uid://c0l7i62mk2h2a" path="res://danmaku.tscn" id="1_mm6d3"]
+[ext_resource type="PackedScene" uid="uid://c3umx1hficlmw" path="res://player.tscn" id="2_qh4yl"]
+[ext_resource type="Script" path="res://emitter.gd" id="4_iwkoy"]
+[ext_resource type="PackedScene" uid="uid://clomvuko2xehj" path="res://patterns/emitter_test_danmaku.tscn" id="5_xraf3"]
+[ext_resource type="PackedScene" uid="uid://draqiwdyst85k" path="res://ui.tscn" id="7_13awu"]
+
+[node name="Scene" type="Node"]
+
+[node name="Gameplay" type="Node2D" parent="." groups=["gameplay"]]
+script = ExtResource("1_dil6c")
+danmaku_area = Rect2(-256, -180, 512, 360)
+
+[node name="Camera2D" type="Camera2D" parent="Gameplay"]
+zoom = Vector2(2, 2)
+
+[node name="Danmaku" parent="Gameplay" instance=ExtResource("1_mm6d3")]
+modulate = Color(1, 0.498039, 1, 1)
+position = Vector2(-32, -32)
+rotation = -0.261799
+
+[node name="Player" parent="Gameplay" instance=ExtResource("2_qh4yl")]
+position = Vector2(105, -83)
+
+[node name="Danmaku2" parent="Gameplay" instance=ExtResource("1_mm6d3")]
+modulate = Color(1, 0.498039, 1, 1)
+position = Vector2(32, -32)
+rotation = -2.8798
+
+[node name="Danmaku3" parent="Gameplay" instance=ExtResource("1_mm6d3")]
+modulate = Color(1, 0.498039, 1, 1)
+position = Vector2(-36, 35)
+rotation = 1.5708
+
+[node name="Danmaku4" parent="Gameplay" instance=ExtResource("1_mm6d3")]
+modulate = Color(1, 0.498039, 1, 1)
+position = Vector2(0, 43)
+rotation = 1.5708
+
+[node name="Danmaku5" parent="Gameplay" instance=ExtResource("1_mm6d3")]
+modulate = Color(1, 0.498039, 1, 1)
+position = Vector2(36, 35)
+rotation = 1.5708
+
+[node name="Danmaku6" parent="Gameplay" instance=ExtResource("1_mm6d3")]
+modulate = Color(1, 0.498039, 1, 1)
+position = Vector2(-17, 32)
+rotation = -1.5708
+
+[node name="Danmaku7" parent="Gameplay" instance=ExtResource("1_mm6d3")]
+modulate = Color(1, 0.498039, 1, 1)
+position = Vector2(18, 31)
+rotation = -1.5708
+
+[node name="Danmaku8" parent="Gameplay" instance=ExtResource("1_mm6d3")]
+modulate = Color(0.498039, 1, 0.498039, 1)
+position = Vector2(0, 110)
+
+[node name="ProjectileMovement" parent="Gameplay/Danmaku8" index="2"]
+spd = 110.0
+ang_vel = -49.5
+
+[node name="Danmaku9" parent="Gameplay" instance=ExtResource("1_mm6d3")]
+modulate = Color(0.498039, 1, 0.498039, 1)
+position = Vector2(0, 110)
+
+[node name="ProjectileMovement" parent="Gameplay/Danmaku9" index="2"]
+spd = 90.0
+ang_vel = -40.5
+
+[node name="Danmaku10" parent="Gameplay" instance=ExtResource("1_mm6d3")]
+modulate = Color(0.498039, 1, 0.498039, 1)
+position = Vector2(0, 110)
+
+[node name="ProjectileMovement" parent="Gameplay/Danmaku10" index="2"]
+spd = 100.0
+ang_vel = -45.0
+
+[node name="Emitter test" type="Node2D" parent="Gameplay"]
+position = Vector2(-256, -128)
+script = ExtResource("4_iwkoy")
+emit = ExtResource("5_xraf3")
+
+[node name="Timer" type="Timer" parent="Gameplay/Emitter test"]
+wait_time = 0.5
+autostart = true
+
+[node name="UI" parent="." instance=ExtResource("7_13awu")]
+
+[connection signal="timeout" from="Gameplay/Emitter test/Timer" to="Gameplay/Emitter test" method="fire"]
+
+[editable path="Gameplay/Danmaku"]
+[editable path="Gameplay/Danmaku8"]
+[editable path="Gameplay/Danmaku9"]
+[editable path="Gameplay/Danmaku10"]

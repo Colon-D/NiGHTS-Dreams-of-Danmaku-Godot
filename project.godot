@@ -11,7 +11,7 @@ config_version=5
 [application]
 
 config/name="NiGHTS Dreams of Danmaku"
-run/main_scene="res://player.tscn"
+run/main_scene="res://gameplay.tscn"
 config/features=PackedStringArray("4.1", "GL Compatibility")
 config/icon="res://icon.svg"
 
@@ -20,7 +20,6 @@ config/icon="res://icon.svg"
 window/size/viewport_width=1024
 window/size/viewport_height=720
 window/stretch/mode="canvas_items"
-window/stretch/scale=2.0
 
 [editor_plugins]
 
@@ -67,6 +66,11 @@ drill_dash={
 , Object(InputEventJoypadButton,"resource_local_to_scene":false,"resource_name":"","device":-1,"button_index":0,"pressure":0.0,"pressed":false,"script":null)
 ]
 }
+
+[layer_names]
+
+2d_physics/layer_1="player"
+2d_physics/layer_2="enemy danmaku"
 
 [rendering]
 
