@@ -1,20 +1,21 @@
-[gd_scene load_steps=7 format=3 uid="uid://bmp2p5lu6jvrv"]
+[gd_scene load_steps=8 format=3 uid="uid://bmp2p5lu6jvrv"]
 
 [ext_resource type="Script" path="res://gameplay.gd" id="1_dil6c"]
 [ext_resource type="PackedScene" uid="uid://c0l7i62mk2h2a" path="res://danmaku.tscn" id="1_mm6d3"]
 [ext_resource type="PackedScene" uid="uid://c3umx1hficlmw" path="res://player.tscn" id="2_qh4yl"]
 [ext_resource type="Script" path="res://emitter.gd" id="4_iwkoy"]
 [ext_resource type="PackedScene" uid="uid://clomvuko2xehj" path="res://patterns/emitter_test_danmaku.tscn" id="5_xraf3"]
+[ext_resource type="PackedScene" uid="uid://cv3hnq6pbjxkw" path="res://gillwing.tscn" id="6_obext"]
 [ext_resource type="PackedScene" uid="uid://draqiwdyst85k" path="res://ui.tscn" id="7_13awu"]
 
 [node name="Scene" type="Node"]
 
 [node name="Gameplay" type="Node2D" parent="." groups=["gameplay"]]
 script = ExtResource("1_dil6c")
-danmaku_area = Rect2(-256, -180, 512, 360)
+danmaku_area = Rect2(-384, -270, 768, 540)
 
 [node name="Camera2D" type="Camera2D" parent="Gameplay"]
-zoom = Vector2(2, 2)
+zoom = Vector2(1.5, 1.5)
 
 [node name="Danmaku" parent="Gameplay" instance=ExtResource("1_mm6d3")]
 modulate = Color(1, 0.498039, 1, 1)
@@ -79,13 +80,16 @@ spd = 100.0
 ang_vel = -45.0
 
 [node name="Emitter test" type="Node2D" parent="Gameplay"]
-position = Vector2(-256, -128)
+position = Vector2(-360, -128)
 script = ExtResource("4_iwkoy")
 emit = ExtResource("5_xraf3")
 
 [node name="Timer" type="Timer" parent="Gameplay/Emitter test"]
 wait_time = 0.5
 autostart = true
+
+[node name="Gillwing" parent="Gameplay" instance=ExtResource("6_obext")]
+position = Vector2(-2000, 0)
 
 [node name="UI" parent="." instance=ExtResource("7_13awu")]
 

@@ -1,0 +1,322 @@
+[gd_scene load_steps=9 format=3 uid="uid://cv3hnq6pbjxkw"]
+
+[ext_resource type="Script" path="res://follow.gd" id="1_6ud5t"]
+[ext_resource type="Script" path="res://addons/smoothing/smoothing_2d.gd" id="1_8cfsc"]
+[ext_resource type="Texture2D" uid="uid://dd5q5haj5b5am" path="res://sprites/gillwing.png" id="2_4jrbg"]
+[ext_resource type="Texture2D" uid="uid://1fjbqbc7weh" path="res://sprites/gillwing_odd.png" id="3_fua64"]
+[ext_resource type="Texture2D" uid="uid://dp0t874ykpx6d" path="res://sprites/gillwing_tail.png" id="3_lftgp"]
+[ext_resource type="Texture2D" uid="uid://dt350otbg7uqv" path="res://sprites/gillwing_even.png" id="4_qvlbw"]
+[ext_resource type="Script" path="res://wiggle_movement.gd" id="6_ayxik"]
+[ext_resource type="Texture2D" uid="uid://d1fkmty82g86i" path="res://sprites/gillwing_pink_long.png" id="6_nlj25"]
+
+[node name="Gillwing" type="Node2D"]
+scale = Vector2(0.333, 0.333)
+
+[node name="Body20" type="Node2D" parent="." node_paths=PackedStringArray("follow")]
+position = Vector2(-1520, 0)
+scale = Vector2(0.525, 0.525)
+script = ExtResource("1_6ud5t")
+distance = 80
+follow = NodePath("../Body19")
+
+[node name="Smoothing2D" type="Node2D" parent="Body20"]
+script = ExtResource("1_8cfsc")
+
+[node name="Sprite2D" type="Sprite2D" parent="Body20/Smoothing2D"]
+position = Vector2(-119.381, 0)
+texture = ExtResource("3_lftgp")
+
+[node name="Body19" type="Node2D" parent="." node_paths=PackedStringArray("follow")]
+position = Vector2(-1440, 0)
+scale = Vector2(0.55, 0.55)
+script = ExtResource("1_6ud5t")
+distance = 80
+follow = NodePath("../Body18")
+
+[node name="Smoothing2D" type="Node2D" parent="Body19"]
+script = ExtResource("1_8cfsc")
+
+[node name="Sprite2D" type="Sprite2D" parent="Body19/Smoothing2D"]
+position = Vector2(-47, 0)
+texture = ExtResource("3_fua64")
+
+[node name="Body18" type="Node2D" parent="." node_paths=PackedStringArray("follow")]
+position = Vector2(-1360, 0)
+scale = Vector2(0.575, 0.575)
+script = ExtResource("1_6ud5t")
+distance = 80
+follow = NodePath("../Body17")
+
+[node name="Smoothing2D" type="Node2D" parent="Body18"]
+script = ExtResource("1_8cfsc")
+
+[node name="Sprite2D" type="Sprite2D" parent="Body18/Smoothing2D"]
+position = Vector2(-47, 0)
+texture = ExtResource("4_qvlbw")
+
+[node name="Body17" type="Node2D" parent="." node_paths=PackedStringArray("follow")]
+position = Vector2(-1280, 0)
+scale = Vector2(0.6, 0.6)
+script = ExtResource("1_6ud5t")
+distance = 80
+follow = NodePath("../Body16")
+
+[node name="Smoothing2D" type="Node2D" parent="Body17"]
+script = ExtResource("1_8cfsc")
+
+[node name="Sprite2D" type="Sprite2D" parent="Body17/Smoothing2D"]
+position = Vector2(-47, 0)
+texture = ExtResource("3_fua64")
+
+[node name="Body16" type="Node2D" parent="." node_paths=PackedStringArray("follow")]
+position = Vector2(-1200, 0)
+scale = Vector2(0.625, 0.625)
+script = ExtResource("1_6ud5t")
+distance = 80
+follow = NodePath("../Body15")
+
+[node name="Smoothing2D" type="Node2D" parent="Body16"]
+script = ExtResource("1_8cfsc")
+
+[node name="Sprite2D" type="Sprite2D" parent="Body16/Smoothing2D"]
+position = Vector2(-47, 0)
+texture = ExtResource("4_qvlbw")
+
+[node name="Body15" type="Node2D" parent="." node_paths=PackedStringArray("follow")]
+position = Vector2(-1120, 0)
+scale = Vector2(0.65, 0.65)
+script = ExtResource("1_6ud5t")
+distance = 80
+follow = NodePath("../Body14")
+
+[node name="Smoothing2D" type="Node2D" parent="Body15"]
+script = ExtResource("1_8cfsc")
+
+[node name="Pink" type="Sprite2D" parent="Body15/Smoothing2D"]
+position = Vector2(-46.9999, 0)
+scale = Vector2(1, 0.75)
+texture = ExtResource("6_nlj25")
+
+[node name="Sprite2D" type="Sprite2D" parent="Body15/Smoothing2D"]
+position = Vector2(-47, 0)
+texture = ExtResource("3_fua64")
+
+[node name="Body14" type="Node2D" parent="." node_paths=PackedStringArray("follow")]
+position = Vector2(-1040, 0)
+scale = Vector2(0.675, 0.675)
+script = ExtResource("1_6ud5t")
+distance = 80
+follow = NodePath("../Body13")
+
+[node name="Smoothing2D" type="Node2D" parent="Body14"]
+script = ExtResource("1_8cfsc")
+
+[node name="Sprite2D" type="Sprite2D" parent="Body14/Smoothing2D"]
+position = Vector2(-47, 0)
+texture = ExtResource("4_qvlbw")
+
+[node name="Body13" type="Node2D" parent="." node_paths=PackedStringArray("follow")]
+position = Vector2(-960, 0)
+scale = Vector2(0.7, 0.7)
+script = ExtResource("1_6ud5t")
+distance = 80
+follow = NodePath("../Body12")
+
+[node name="Smoothing2D" type="Node2D" parent="Body13"]
+script = ExtResource("1_8cfsc")
+
+[node name="Sprite2D" type="Sprite2D" parent="Body13/Smoothing2D"]
+position = Vector2(-47, 0)
+texture = ExtResource("6_nlj25")
+
+[node name="Body12" type="Node2D" parent="." node_paths=PackedStringArray("follow")]
+position = Vector2(-880, 0)
+scale = Vector2(0.725, 0.725)
+script = ExtResource("1_6ud5t")
+distance = 80
+follow = NodePath("../Body11")
+
+[node name="Smoothing2D" type="Node2D" parent="Body12"]
+script = ExtResource("1_8cfsc")
+
+[node name="Sprite2D" type="Sprite2D" parent="Body12/Smoothing2D"]
+position = Vector2(-47, 0)
+texture = ExtResource("4_qvlbw")
+
+[node name="Body11" type="Node2D" parent="." node_paths=PackedStringArray("follow")]
+position = Vector2(-800, 0)
+scale = Vector2(0.75, 0.75)
+script = ExtResource("1_6ud5t")
+distance = 80
+follow = NodePath("../Body10")
+
+[node name="Smoothing2D" type="Node2D" parent="Body11"]
+script = ExtResource("1_8cfsc")
+
+[node name="Pink" type="Sprite2D" parent="Body11/Smoothing2D"]
+position = Vector2(-47, 0)
+scale = Vector2(1, 0.75)
+texture = ExtResource("6_nlj25")
+
+[node name="Sprite2D" type="Sprite2D" parent="Body11/Smoothing2D"]
+position = Vector2(-47, 0)
+texture = ExtResource("3_fua64")
+
+[node name="Body10" type="Node2D" parent="." node_paths=PackedStringArray("follow")]
+position = Vector2(-720, 0)
+scale = Vector2(0.775, 0.775)
+script = ExtResource("1_6ud5t")
+distance = 80
+follow = NodePath("../Body9")
+
+[node name="Smoothing2D" type="Node2D" parent="Body10"]
+script = ExtResource("1_8cfsc")
+
+[node name="Sprite2D" type="Sprite2D" parent="Body10/Smoothing2D"]
+position = Vector2(-47, 0)
+texture = ExtResource("4_qvlbw")
+
+[node name="Body9" type="Node2D" parent="." node_paths=PackedStringArray("follow")]
+position = Vector2(-640, 0)
+scale = Vector2(0.8, 0.8)
+script = ExtResource("1_6ud5t")
+distance = 80
+follow = NodePath("../Body8")
+
+[node name="Smoothing2D" type="Node2D" parent="Body9"]
+script = ExtResource("1_8cfsc")
+
+[node name="Pink" type="Sprite2D" parent="Body9/Smoothing2D"]
+position = Vector2(-47, 0)
+scale = Vector2(1, 0.5)
+texture = ExtResource("6_nlj25")
+
+[node name="Sprite2D" type="Sprite2D" parent="Body9/Smoothing2D"]
+position = Vector2(-47, 0)
+texture = ExtResource("3_fua64")
+
+[node name="Body8" type="Node2D" parent="." node_paths=PackedStringArray("follow")]
+position = Vector2(-560, 0)
+scale = Vector2(0.825, 0.825)
+script = ExtResource("1_6ud5t")
+distance = 80
+follow = NodePath("../Body7")
+
+[node name="Smoothing2D" type="Node2D" parent="Body8"]
+script = ExtResource("1_8cfsc")
+
+[node name="Sprite2D" type="Sprite2D" parent="Body8/Smoothing2D"]
+position = Vector2(-47, 0)
+texture = ExtResource("4_qvlbw")
+
+[node name="Body7" type="Node2D" parent="." node_paths=PackedStringArray("follow")]
+position = Vector2(-480, 0)
+scale = Vector2(0.85, 0.85)
+script = ExtResource("1_6ud5t")
+distance = 80
+follow = NodePath("../Body6")
+
+[node name="Smoothing2D" type="Node2D" parent="Body7"]
+script = ExtResource("1_8cfsc")
+
+[node name="Sprite2D" type="Sprite2D" parent="Body7/Smoothing2D"]
+position = Vector2(-47, 0)
+texture = ExtResource("3_fua64")
+
+[node name="Body6" type="Node2D" parent="." node_paths=PackedStringArray("follow")]
+position = Vector2(-400, 0)
+scale = Vector2(0.875, 0.875)
+script = ExtResource("1_6ud5t")
+distance = 80
+follow = NodePath("../Body5")
+
+[node name="Smoothing2D" type="Node2D" parent="Body6"]
+script = ExtResource("1_8cfsc")
+
+[node name="Sprite2D" type="Sprite2D" parent="Body6/Smoothing2D"]
+position = Vector2(-47, 0)
+texture = ExtResource("4_qvlbw")
+
+[node name="Body5" type="Node2D" parent="." node_paths=PackedStringArray("follow")]
+position = Vector2(-320, 0)
+scale = Vector2(0.9, 0.9)
+script = ExtResource("1_6ud5t")
+distance = 80
+follow = NodePath("../Body4")
+
+[node name="Smoothing2D" type="Node2D" parent="Body5"]
+script = ExtResource("1_8cfsc")
+
+[node name="Sprite2D" type="Sprite2D" parent="Body5/Smoothing2D"]
+position = Vector2(-47, 0)
+texture = ExtResource("3_fua64")
+
+[node name="Body4" type="Node2D" parent="." node_paths=PackedStringArray("follow")]
+position = Vector2(-240, 0)
+scale = Vector2(0.925, 0.925)
+script = ExtResource("1_6ud5t")
+distance = 80
+follow = NodePath("../Body3")
+
+[node name="Smoothing2D" type="Node2D" parent="Body4"]
+script = ExtResource("1_8cfsc")
+
+[node name="Sprite2D" type="Sprite2D" parent="Body4/Smoothing2D"]
+position = Vector2(-47, 0)
+texture = ExtResource("4_qvlbw")
+
+[node name="Body3" type="Node2D" parent="." node_paths=PackedStringArray("follow")]
+position = Vector2(-160, 0)
+scale = Vector2(0.95, 0.95)
+script = ExtResource("1_6ud5t")
+distance = 80
+follow = NodePath("../Body2")
+
+[node name="Smoothing2D" type="Node2D" parent="Body3"]
+script = ExtResource("1_8cfsc")
+
+[node name="Sprite2D" type="Sprite2D" parent="Body3/Smoothing2D"]
+position = Vector2(-47, 0)
+texture = ExtResource("3_fua64")
+
+[node name="Body2" type="Node2D" parent="." node_paths=PackedStringArray("follow")]
+position = Vector2(-80, 0)
+scale = Vector2(0.975, 0.975)
+script = ExtResource("1_6ud5t")
+distance = 80
+follow = NodePath("../Body")
+
+[node name="Smoothing2D" type="Node2D" parent="Body2"]
+script = ExtResource("1_8cfsc")
+
+[node name="Sprite2D" type="Sprite2D" parent="Body2/Smoothing2D"]
+position = Vector2(-47, 0)
+texture = ExtResource("4_qvlbw")
+
+[node name="Body" type="Node2D" parent="." node_paths=PackedStringArray("follow")]
+script = ExtResource("1_6ud5t")
+distance = 80
+follow = NodePath("../Head")
+
+[node name="Smoothing2D" type="Node2D" parent="Body"]
+script = ExtResource("1_8cfsc")
+
+[node name="Sprite2D" type="Sprite2D" parent="Body/Smoothing2D"]
+position = Vector2(-47, 0)
+texture = ExtResource("3_fua64")
+
+[node name="Head" type="Node2D" parent="."]
+position = Vector2(80, 0)
+
+[node name="Smoothing2D" type="Node2D" parent="Head"]
+script = ExtResource("1_8cfsc")
+
+[node name="Sprite2D" type="Sprite2D" parent="Head/Smoothing2D"]
+position = Vector2(-128, -66)
+texture = ExtResource("2_4jrbg")
+
+[node name="Wiggle" type="Node" parent="Head"]
+script = ExtResource("6_ayxik")
+speed = 640.0
+amplitude = 128.0
+frequency = 256.0
